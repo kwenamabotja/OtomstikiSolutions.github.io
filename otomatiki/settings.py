@@ -131,3 +131,8 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+PAYFAST_BASE_URL = os.getenv('PAYFAST_BASE_URL')
+PAYFAST_MERCHANT_ID = os.getenv('PAYFAST_MERCHANT_ID')
+PAYFAST_MERCHANT_KEY = os.getenv('PAYFAST_MERCHANT_KEY')

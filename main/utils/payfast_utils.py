@@ -31,24 +31,24 @@ class PayFastUtil(object):
             'item_name': 'Order#123'
         }
         # Generate signature (see step 2)
-        signature = self.generateSignature(data);
+        signature = self.generate_signature(data)
         data['signature'] = signature
 
-        htmlForm = f'<form action="https://{self.BASE_URL}/eng/process" method="post">'
+        html_form = f'<form action="https://{self.BASE_URL}/eng/process" method="post">'
         for key in data:
-            htmlForm += f'<input name="{key}" type="hidden" value="{data[key]}" />'
+            html_form += f'<input name="{key}" type="hidden" value="{data[key]}" />'
 
-        htmlForm += '<input class="main-button" type="submit" value="Pay Now" /></form>'
-        return htmlForm
+        html_form += '<input class="main-button" type="submit" value="Pay Now" /></form>'
+        return html_form
 
-    def generateSignature(self, dataArray, passPhrase=''):
+    def generate_signature(self, data_array, pass_phrase=''):
         payload = ""
-        for key in dataArray:
+        for key in data_array:
             # Get all the data from PayFast and prepare parameter string
-            payload += key + "=" + urllib.parse.quote_plus(dataArray[key].replace("+", " ")) + "&"
+            payload += key + "=" + urllib.parse.quote_plus(data_array[key].replace("+", " ")) + "&"
         # After looping through, cut the last & or append your passphrase
         payload = payload[:-1]
-        if passPhrase != '':
-            payload += f"&passphrase={passPhrase}"
+        if pass_phrase != '':
+            payload += f"&passphrase={pass_phrase}"
         return hashlib.md5(payload.encode()).hexdigest()
 

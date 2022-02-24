@@ -139,6 +139,8 @@ load_dotenv()
 PAYFAST_BASE_URL = os.getenv('PAYFAST_BASE_URL')
 PAYFAST_MERCHANT_ID = os.getenv('PAYFAST_MERCHANT_ID')
 PAYFAST_MERCHANT_KEY = os.getenv('PAYFAST_MERCHANT_KEY')
+SENDGRID_TOKEN = os.getenv('SENDGRID_TOKEN')
+SENDGRID_URL = os.getenv('SENDGRID_URL')
 
 SITE = {
     "name": "Otomatiki Solutions",

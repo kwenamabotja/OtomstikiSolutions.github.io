@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from dotenv import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -133,6 +135,13 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+load_dotenv()
 PAYFAST_BASE_URL = os.getenv('PAYFAST_BASE_URL')
 PAYFAST_MERCHANT_ID = os.getenv('PAYFAST_MERCHANT_ID')
 PAYFAST_MERCHANT_KEY = os.getenv('PAYFAST_MERCHANT_KEY')
+
+SITE = {
+    "name": "Otomatiki Solutions",
+    "email": "kwenaconnections@outlook.com",
+    "phone": "067 269 3196",
+}

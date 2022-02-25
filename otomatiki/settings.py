@@ -141,9 +141,13 @@ PAYFAST_MERCHANT_ID = os.getenv('PAYFAST_MERCHANT_ID')
 PAYFAST_MERCHANT_KEY = os.getenv('PAYFAST_MERCHANT_KEY')
 SENDGRID_TOKEN = os.getenv('SENDGRID_TOKEN')
 SENDGRID_URL = os.getenv('SENDGRID_URL')
+GOOGLE_MAP_KEY = os.getenv('GOOGLE_MAP_KEY')
+GOOGLE_MAP_BASE_URL = os.getenv('GOOGLE_MAP_BASE_URL')
 
 SITE = {
     "name": "Otomatiki Solutions",
     "email": "kwenaconnections@outlook.com",
     "phone": "067 269 3196",
 }
+ADMIN_EMAIL = "koena93@gmail.com"
+OWNER_EMAIL = "septembernosivuno@gmail.com"

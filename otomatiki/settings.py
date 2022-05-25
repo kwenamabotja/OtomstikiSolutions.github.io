@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.contrib.messages import constants
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -134,6 +135,13 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MESSAGE_TAGS = {
+    constants.DEBUG: 'alert-secondary',
+    constants.INFO: 'alert-info',
+    constants.SUCCESS: 'alert-success',
+    constants.WARNING: 'alert-warning',
+    constants.ERROR: 'alert-danger',
+ }
 
 load_dotenv()
 PAYFAST_BASE_URL = os.getenv('PAYFAST_BASE_URL')
@@ -143,10 +151,11 @@ SENDGRID_TOKEN = os.getenv('SENDGRID_TOKEN')
 SENDGRID_URL = os.getenv('SENDGRID_URL')
 GOOGLE_MAP_KEY = os.getenv('GOOGLE_MAP_KEY')
 GOOGLE_MAP_BASE_URL = os.getenv('GOOGLE_MAP_BASE_URL')
+CONTACT_US = os.getenv('CONTACT_US', 'admin@otomatikisolutions.co.za')
 
 SITE = {
     "name": "Otomatiki Solutions",
-    "email": "kwenaconnections@outlook.com",
+    "email": CONTACT_US,
     "phone": "067 269 3196",
 }
 ADMIN_EMAIL = "koena93@gmail.com"

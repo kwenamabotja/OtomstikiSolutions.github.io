@@ -1,6 +1,7 @@
 import logging
 
 from django.conf import settings
+from django.contrib import messages
 from django.shortcuts import render
 
 # Create your views here.
@@ -28,15 +29,20 @@ class HomePageView(TemplateView):
         message = request.POST.get("message")
         print(name)
         if name and email and message:
-            contact = Contact.objects.create(
-                name=name,
-                email=email,
-                # mobile_number=mobile_number,
-                message=message
-            )
-            logger.info(f"{contact} Created!")
-            u = EmailUtil()
-            # u.send_contact_email(contact)
+            try:
+                contact = Contact.objects.create(
+                    name=name,
+                    email=email,
+                    # mobile_number=mobile_number,
+                    message=message
+                )
+                logger.info(f"{contact} Created!")
+                u = EmailUtil()
+                # u.send_contact_email(contact)
+                messages.success(request, "Message sent.")
+            except Exception as e:
+                logger.error(f"Error: {e}")
+                messages.error(request, "Message not sent.")
         else:
             logger.info("The form is invalid")
         return render(request=request, template_name=self.template_name, context=self.get_context_data())

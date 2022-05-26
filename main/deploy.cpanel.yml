@@ -1,0 +1,6 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=\C:\Users\User\Documents\OM Website\OtomatikiSolutionsWebsite.github.io
+
+
+

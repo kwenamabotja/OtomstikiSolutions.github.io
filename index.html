@@ -36,6 +36,7 @@
 	<link rel="stylesheet" href="css/nivo-lightbox.css">
 
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="css/floating-wpp.min.css">
 
 	<link rel="stylesheet" href="css/style.css">
 
@@ -817,7 +818,7 @@
 
 					<h3><i class="icon-envelope medium-icon wow bounceIn" data-wow-delay="0.6s"></i> EMAIL</h3>
 
-					<p>admin@otomoatikisolutions.co.za</p>
+					<p>admin@otomatikisolutions.co.za</p>
 
 				</div>
 
@@ -919,8 +920,8 @@
 
 </footer>
 
-
-
+<!--Div where the WhatsApp will be rendered-->
+<div id="WAButton"></div>
 
 
 <script src="js/jquery.js"></script>
@@ -938,10 +939,27 @@
 <script src="js/jquery.backstretch.min.js"></script>
 
 <script src="js/wow.min.js"></script>
+<script src="js/floating-wpp.min.js"></script>
 
 <script src="js/custom.js"></script>
 
+<script>
 
+ $(function() {
+     let whatsappImgSrc = 'images/whatsapp.svg';
+     $('#WAButton').floatingWhatsApp({
+        phone: '+27684512696', //WhatsApp Business phone number International format-
+        //Get it with Toky at https://toky.co/en/features/whatsapp.
+        headerTitle: 'Chat with us on WhatsApp!', //Popup Title
+        popupMessage: 'Hello, how can we help you?', //Popup Message
+        showPopup: true, //Enables popup display
+        buttonImage: '<img src='+ whatsappImgSrc + ' />', //Button Image
+        //headerColor: 'crimson', //Custom header color
+        //backgroundColor: 'crimson', //Custom background button color
+        position: "right"
+    });
+});
+</script>
 
 </body>
 
